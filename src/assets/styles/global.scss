@@ -1,0 +1,21 @@
+@import './reset';
+@import './variables';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font: 500 normal 1rem/1.2 $default-font;
+	color: $purply;
+	overflow-x: hidden;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
