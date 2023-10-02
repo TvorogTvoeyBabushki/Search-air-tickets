@@ -11,9 +11,13 @@ export interface ITicketsData {
 	price: number
 	currency: string
 	time: TicketTime
-	duration: number
+	duration: {
+		hour: number
+		minute: number
+	}
 	date: Date
 	connectionAmount: number
+	logo: string
 }
 
 export const ticketsData: ITicketsData[] = [
@@ -28,9 +32,13 @@ export const ticketsData: ITicketsData[] = [
 			startTime: '12:00',
 			endTime: '16:30'
 		},
-		duration: 4.3,
+		duration: {
+			hour: 4,
+			minute: 30
+		},
 		date: new Date(),
-		connectionAmount: 1
+		connectionAmount: 1,
+		logo: '/победа.png'
 	},
 	{
 		id: 2,
@@ -43,9 +51,13 @@ export const ticketsData: ITicketsData[] = [
 			startTime: '14:00',
 			endTime: '16:00'
 		},
-		duration: 2,
+		duration: {
+			hour: 2,
+			minute: 0
+		},
 		date: new Date(),
-		connectionAmount: 0
+		connectionAmount: 0,
+		logo: '/red-wings.png'
 	},
 	{
 		id: 3,
@@ -58,8 +70,12 @@ export const ticketsData: ITicketsData[] = [
 			startTime: '04:50',
 			endTime: '13:30'
 		},
-		duration: 8.4,
+		duration: {
+			hour: 8,
+			minute: 40
+		},
 		date: new Date(),
-		connectionAmount: 2
+		connectionAmount: 2,
+		logo: '/s7-airlines.png'
 	}
 ]

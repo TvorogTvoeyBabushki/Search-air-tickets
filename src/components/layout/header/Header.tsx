@@ -1,9 +1,16 @@
 import { FunctionComponent } from 'react'
 
+import styles from './Header.module.scss'
+
 const Header: FunctionComponent = () => {
 	return (
-		<header>
-			<div className='container'>header</div>
+		<header className={styles.header}>
+			<div className='container'>
+				<div>
+					<img src='/logo.png' alt='Logo' />
+					<h1>Поиск авиабилетов</h1>
+				</div>
+			</div>
 		</header>
 	)
 }

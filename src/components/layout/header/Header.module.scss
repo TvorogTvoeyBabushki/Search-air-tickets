@@ -1,0 +1,20 @@
+.header {
+	> div {
+		> div {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 0 34px;
+			padding-top: 110px;
+
+			> img {
+				max-width: 100px;
+			}
+
+			> h1 {
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+		}
+	}
+}

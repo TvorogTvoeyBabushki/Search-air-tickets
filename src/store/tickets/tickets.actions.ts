@@ -1,7 +1,8 @@
-import { ticketsData } from '@/api/data/tickets.data'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { Server } from 'miragejs'
+import axios from 'axios'
+
+import { ticketsData } from '@/api/data/tickets.data'
 
 new Server({
 	routes() {
