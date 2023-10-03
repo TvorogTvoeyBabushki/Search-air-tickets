@@ -1,0 +1,43 @@
+@import '@/assets/styles/variables';
+
+.checkbox {
+	width: 100%;
+	max-width: 200px;
+	padding-left: 40px;
+	cursor: pointer;
+	position: relative;
+
+	&::before {
+		content: '';
+		height: 20px;
+		width: 20px;
+		background: url('check.png') center no-repeat;
+		background-size: 0;
+
+		border: 1px solid $purply;
+		border-radius: 4px;
+
+		position: absolute;
+		left: 0;
+	}
+
+	&.active::before {
+		background-size: 15px;
+	}
+
+	> input {
+		height: 22px;
+		width: 22px;
+		padding: 2px;
+
+		cursor: inherit;
+		visibility: hidden;
+
+		position: absolute;
+		left: 0;
+	}
+
+	> span {
+		color: $lavender;
+	}
+}

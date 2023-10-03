@@ -1,82 +1,82 @@
 @import '@/assets/styles/variables';
 
 .search_air_tickets {
+	display: flex;
+	justify-content: space-between;
+
 	> div:first-child {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 30px;
+		width: 100%;
+		max-width: 300px;
 
-		> button {
-			flex-grow: 1;
-			padding: 18px 50px;
+		> div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 25px;
+
+			padding: 20px 20px 45px;
 			background-color: $light-lavender;
-			border: 1px solid $purply;
-			color: $purply;
-			transition: all 0.4s ease-in-out;
+			border-radius: 10px;
 
-			&:first-child {
-				border-radius: 10px 0 0 10px;
-			}
-
-			&:last-child {
-				border-radius: 0 10px 10px 0;
-			}
-
-			&:hover {
-				background-color: $purply;
-				color: #fff;
-			}
-
-			&:disabled {
-				cursor: none;
+			> h3 {
+				font-size: 1.3rem;
+				font-weight: 700;
 			}
 		}
 	}
 
 	> div:last-child {
-		display: flex;
-		flex-direction: column;
-		gap: 47px;
+		> div:first-child {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 30px;
+		}
 
-		> div {
+		> div:last-child {
 			display: flex;
 			flex-direction: column;
-			gap: 25px;
-			padding: 40px 40px 25px;
-			background-color: $light-lavender;
-			border-radius: 10px;
+			gap: 47px;
 
-			> div:first-child {
+			> div {
 				display: flex;
-				justify-content: space-between;
+				flex-direction: column;
+				gap: 25px;
+				padding: 40px 40px 25px;
+				background-color: $light-lavender;
+				border-radius: 10px;
 
-				> h2 {
-					font-size: 2rem;
-					font-weight: 700;
-				}
-
-				> img {
-					max-width: 160px;
-				}
-			}
-
-			> div:last-child {
-				display: flex;
-				justify-content: space-between;
-
-				> div {
+				> div:first-child {
 					display: flex;
-					flex-direction: column;
-					gap: 10px;
+					justify-content: space-between;
 
-					> div:first-child {
-						color: $lavender;
+					> h2 {
+						font-size: 2rem;
+						font-weight: 700;
+					}
+
+					> img {
+						max-width: 160px;
 					}
 				}
 
 				> div:last-child {
-					width: 100%;
-					max-width: 160px;
+					display: flex;
+					justify-content: space-between;
+
+					> div {
+						display: flex;
+						flex-direction: column;
+						gap: 10px;
+
+						> div:first-child {
+							color: $lavender;
+						}
+					}
+
+					> div:last-child {
+						width: 100%;
+						max-width: 160px;
+					}
 				}
 			}
 		}

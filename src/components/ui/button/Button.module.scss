@@ -1,0 +1,40 @@
+@import '@/assets/styles/variables';
+
+.btn {
+	flex-grow: 1;
+	padding: 18px 50px;
+	background-color: $light-lavender;
+	border: 1px solid $purply;
+	color: $purply;
+	transition: all 0.4s ease-in-out;
+
+	&:first-child {
+		border-radius: 10px 0 0 10px;
+	}
+
+	&:last-child {
+		border-radius: 0 10px 10px 0;
+	}
+
+	&:is(:hover, .active) {
+		background-color: $purply;
+		color: #fff;
+	}
+
+	&:disabled {
+		cursor: default;
+	}
+
+	&.load_more {
+		border-radius: 10px;
+		background-color: $purply;
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #fff;
+
+		&:hover {
+			background-color: $light-lavender;
+			color: $purply;
+		}
+	}
+}

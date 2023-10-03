@@ -3,7 +3,6 @@ import { Server } from 'miragejs'
 import axios from 'axios'
 
 import { ticketsData } from '@/api/data/tickets.data'
-
 new Server({
 	routes() {
 		this.namespace = 'api'

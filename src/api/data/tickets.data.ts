@@ -45,7 +45,7 @@ export const ticketsData: ITicketsData[] = [
 		from: 'SVO',
 		to: 'LED',
 		company: 'Red Wings',
-		price: 21500,
+		price: 24000,
 		currency: 'RUB',
 		time: {
 			startTime: '14:00',
@@ -64,7 +64,7 @@ export const ticketsData: ITicketsData[] = [
 		from: 'SVO',
 		to: 'LED',
 		company: 'S7 Airlines',
-		price: 23995,
+		price: 21500,
 		currency: 'RUB',
 		time: {
 			startTime: '04:50',
@@ -77,5 +77,43 @@ export const ticketsData: ITicketsData[] = [
 		date: new Date(),
 		connectionAmount: 2,
 		logo: '/s7-airlines.png'
+	},
+	{
+		id: 4,
+		from: 'SVO',
+		to: 'LED',
+		company: 'Победа',
+		price: 17300,
+		currency: 'RUB',
+		time: {
+			startTime: '09:20',
+			endTime: '13:00'
+		},
+		duration: {
+			hour: 4,
+			minute: 20
+		},
+		date: new Date(),
+		connectionAmount: 1,
+		logo: '/победа.png'
+	},
+	{
+		id: 5,
+		from: 'SVO',
+		to: 'LED',
+		company: 'Red Wings',
+		price: 30000,
+		currency: 'RUB',
+		time: {
+			startTime: '11:30',
+			endTime: '16:30'
+		},
+		duration: {
+			hour: 5,
+			minute: 0
+		},
+		date: new Date(),
+		connectionAmount: 3,
+		logo: '/red-wings.png'
 	}
 ]
