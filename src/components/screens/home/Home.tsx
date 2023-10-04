@@ -10,7 +10,7 @@ import { useTickets } from '@/hooks/useTickets'
 import SearchAirTickets from './search-air-tickets/SearchAirTickets'
 
 const Home: FunctionComponent = () => {
-	const { tickets } = useTickets()
+	const { tickets, sortTickets } = useTickets()
 
 	useEffect(() => {
 		store.dispatch(getTickets())
@@ -20,7 +20,7 @@ const Home: FunctionComponent = () => {
 		<Layout>
 			<main>
 				<div className='container'>
-					<SearchAirTickets tickets={tickets} />
+					<SearchAirTickets tickets={tickets} sortTickets={sortTickets} />
 				</div>
 			</main>
 		</Layout>

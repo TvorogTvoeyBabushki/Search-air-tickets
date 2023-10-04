@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from 'react'
+import { FunctionComponent, useState, useEffect, useCallback } from 'react'
 
 import { ITicketsData } from '@/api/data/tickets.data'
 
@@ -10,6 +10,7 @@ import { currency } from '@/utils/currency'
 import { useAction } from '@/hooks/useAction'
 
 import styles from './SearchAirTickets.module.scss'
+import { useTickets } from '@/hooks/useTickets'
 
 const btnElements = [
 	{ children: 'Самый дешевый', variant: 'cheap' },
@@ -36,9 +37,11 @@ const checkboxElements = [
 	}
 ]
 
-const SearchAirTickets: FunctionComponent<{ tickets: ITicketsData[] }> = ({
-	tickets
+const SearchAirTickets: FunctionComponent<{ [x: string]: ITicketsData[] }> = ({
+	tickets,
+	sortTickets
 }) => {
+	const [ticketsData, setTicketsData] = useState<ITicketsData[]>([])
 	const {
 		SORT_CONNECTION_AMOUNT,
 		SORT_TICKETS_CHEAP,
@@ -46,43 +49,60 @@ const SearchAirTickets: FunctionComponent<{ tickets: ITicketsData[] }> = ({
 		SORT_TICKETS_OPTIMAL
 	} = useAction()
 	const [activeBtn, setActiveBtn] = useState<string[]>(['cheap'])
-	const [activeCheckbox, setActiveCheckbox] = useState<number[]>([])
+	const [activeCheckbox, setActiveCheckbox] = useState<Set<string>>(new Set())
 
-	const handleClick = (variant: string) => {
+	const handleSortClick = (variant: string) => {
 		if (variant === 'cheap') {
-			SORT_TICKETS_CHEAP()
+			// попробовать передавать груз в акшен чтоб нормально реализовать сорт
+			SORT_TICKETS_CHEAP(activeCheckbox.size ? true : false)
 			setActiveBtn([variant])
 		}
 
 		if (variant === 'fast') {
-			SORT_TICKETS_FAST()
+			SORT_TICKETS_FAST(activeCheckbox.size ? true : false)
 			setActiveBtn([variant])
 		}
 
 		if (variant === 'optimal') {
-			SORT_TICKETS_OPTIMAL()
+			SORT_TICKETS_OPTIMAL(activeCheckbox.size ? true : false)
 			setActiveBtn([variant])
 		}
 	}
 
-	const handleCheckboxClick = (connectionAmount: number) => {
-		if (
-			activeCheckbox.filter(checkbox => checkbox === connectionAmount).length
-		) {
-			setActiveCheckbox(prev =>
-				prev.filter(checkbox => checkbox !== connectionAmount)
-			)
+	const handleCheckboxClick = useCallback(
+		(e: React.FormEvent<HTMLInputElement>) => {
+			setActiveCheckbox(prev => {
+				let filters = new Set(prev)
 
-			return
-		}
+				if ((e.target as HTMLInputElement).checked) {
+					filters.add((e.target as HTMLInputElement).value)
+				} else {
+					filters.delete((e.target as HTMLInputElement).value)
+				}
 
-		setActiveCheckbox(prev => [...prev, connectionAmount])
-		// sortConnectionAmount(activeCheckbox)
-	}
+				return filters
+			})
+		},
+		[setActiveCheckbox]
+	)
 
 	useEffect(() => {
-		activeCheckbox.length && SORT_CONNECTION_AMOUNT(activeCheckbox)
+		if (activeCheckbox.size) {
+			SORT_CONNECTION_AMOUNT(activeCheckbox)
+			handleSortClick(activeBtn[0])
+		} else {
+			setTicketsData(tickets)
+			handleSortClick(activeBtn[0])
+		}
 	}, [activeCheckbox])
+
+	useEffect(() => {
+		setTicketsData(tickets)
+	}, [tickets])
+
+	useEffect(() => {
+		setTicketsData(sortTickets)
+	}, [sortTickets])
 
 	return (
 		<section className={styles.search_air_tickets}>
@@ -93,15 +113,12 @@ const SearchAirTickets: FunctionComponent<{ tickets: ITicketsData[] }> = ({
 						<Checkbox
 							key={index}
 							active={
-								activeCheckbox.filter(
-									checkbox => checkbox === checkboxElement.connectionAmount
-								).length
+								activeCheckbox.has(`${checkboxElement.connectionAmount}`)
 									? true
 									: false
 							}
-							onChange={() =>
-								handleCheckboxClick(checkboxElement.connectionAmount)
-							}
+							value={checkboxElement.connectionAmount}
+							onChange={e => handleCheckboxClick(e)}
 						>
 							{checkboxElement.children}
 						</Checkbox>
@@ -116,7 +133,7 @@ const SearchAirTickets: FunctionComponent<{ tickets: ITicketsData[] }> = ({
 							key={index}
 							variant={btnElement.variant}
 							active={activeBtn}
-							onClick={() => handleClick(btnElement.variant)}
+							onClick={() => handleSortClick(btnElement.variant)}
 						>
 							{btnElement.children}
 						</Button>
@@ -124,7 +141,7 @@ const SearchAirTickets: FunctionComponent<{ tickets: ITicketsData[] }> = ({
 				</div>
 
 				<div>
-					{tickets.map(ticket => (
+					{ticketsData.map(ticket => (
 						<div key={ticket.id}>
 							<div>
 								<h2>{currency(ticket.price)}</h2>

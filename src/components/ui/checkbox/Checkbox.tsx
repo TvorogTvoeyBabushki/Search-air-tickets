@@ -5,11 +5,13 @@ import styles from './Checkbox.module.scss'
 
 interface ICheckboxProps extends FieldsetHTMLAttributes<HTMLInputElement> {
 	active: boolean
+	value: number
 }
 
 const Checkbox: FunctionComponent<ICheckboxProps> = ({
 	active,
 	children,
+	value,
 	onChange
 }) => {
 	return (
@@ -18,7 +20,7 @@ const Checkbox: FunctionComponent<ICheckboxProps> = ({
 				[styles.active]: active
 			})}
 		>
-			<input onChange={onChange} type='checkbox' />
+			<input value={value} onChange={onChange} type='checkbox' />
 			<span>{children}</span>
 		</label>
 	)
