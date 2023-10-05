@@ -10,7 +10,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FunctionComponent<IButtonProps> = ({
 	variant,
-	active = ['cheap'],
+	active = [],
 	children,
 	onClick
 }) => {

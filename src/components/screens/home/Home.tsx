@@ -10,17 +10,22 @@ import { useTickets } from '@/hooks/useTickets'
 import SearchAirTickets from './search-air-tickets/SearchAirTickets'
 
 const Home: FunctionComponent = () => {
-	const { tickets, sortTickets } = useTickets()
+	const { tickets, sortTicketsCompany, sortTicketsConnectionAmount } =
+		useTickets()
 
 	useEffect(() => {
 		store.dispatch(getTickets())
 	}, [])
-
+	// в самом конце объединить компонент чекбокса и радиокнопки
 	return (
 		<Layout>
 			<main>
 				<div className='container'>
-					<SearchAirTickets tickets={tickets} sortTickets={sortTickets} />
+					<SearchAirTickets
+						tickets={tickets}
+						sortTicketsCompany={sortTicketsCompany}
+						sortTicketsConnectionAmount={sortTicketsConnectionAmount}
+					/>
 				</div>
 			</main>
 		</Layout>

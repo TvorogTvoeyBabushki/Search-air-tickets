@@ -94,7 +94,7 @@ export const ticketsData: ITicketsData[] = [
 			minute: 20
 		},
 		date: new Date(),
-		connectionAmount: 1,
+		connectionAmount: 0,
 		logo: '/победа.png'
 	},
 	{
