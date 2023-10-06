@@ -1,0 +1,50 @@
+@import '@/assets/styles/variables';
+
+.tickets_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 47px;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		padding: 40px 40px 25px;
+		background-color: $light-lavender;
+		border-radius: 10px;
+
+		> div:first-child {
+			display: flex;
+			justify-content: space-between;
+
+			> h2 {
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			> img {
+				max-width: 160px;
+			}
+		}
+
+		> div:last-child {
+			display: flex;
+			justify-content: space-between;
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				> div:first-child {
+					color: $lavender;
+				}
+			}
+
+			> div:last-child {
+				width: 100%;
+				max-width: 160px;
+			}
+		}
+	}
+}

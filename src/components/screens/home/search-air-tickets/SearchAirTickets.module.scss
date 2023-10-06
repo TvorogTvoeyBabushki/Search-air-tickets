@@ -3,27 +3,14 @@
 .search_air_tickets {
 	display: flex;
 	justify-content: space-between;
+	margin-top: 30px;
 
 	> div:first-child {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
 		width: 100%;
 		max-width: 300px;
-
-		> div {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 25px;
-
-			padding: 20px 20px 45px;
-			background-color: $light-lavender;
-			border-radius: 10px;
-
-			> h3 {
-				align-self: flex-start;
-				font-size: 1.3rem;
-				font-weight: 700;
-			}
-		}
 	}
 
 	> div:last-child {
@@ -31,55 +18,6 @@
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 30px;
-		}
-
-		> div:last-child {
-			display: flex;
-			flex-direction: column;
-			gap: 47px;
-
-			> div {
-				display: flex;
-				flex-direction: column;
-				gap: 25px;
-				padding: 40px 40px 25px;
-				background-color: $light-lavender;
-				border-radius: 10px;
-
-				> div:first-child {
-					display: flex;
-					justify-content: space-between;
-
-					> h2 {
-						font-size: 2rem;
-						font-weight: 700;
-					}
-
-					> img {
-						max-width: 160px;
-					}
-				}
-
-				> div:last-child {
-					display: flex;
-					justify-content: space-between;
-
-					> div {
-						display: flex;
-						flex-direction: column;
-						gap: 10px;
-
-						> div:first-child {
-							color: $lavender;
-						}
-					}
-
-					> div:last-child {
-						width: 100%;
-						max-width: 160px;
-					}
-				}
-			}
 		}
 	}
 }
