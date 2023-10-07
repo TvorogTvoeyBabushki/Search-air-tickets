@@ -55,7 +55,7 @@ const SearchAirTickets: FunctionComponent<{ [x: string]: ITicketsData[] }> = ({
 						</h3>
 						<button onClick={handleShowSortPanel}>
 							{windowWidth > 760 ? 'Открыть настройки' : ''}
-							<img src='arrow.png' alt='arrow' />
+							<img src='/Search-air-tickets/arrow.png' alt='arrow' />
 						</button>
 					</div>
 				</>

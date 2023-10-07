@@ -7,7 +7,7 @@ const Header: FunctionComponent = () => {
 		<header className={styles.header}>
 			<div className='container'>
 				<div>
-					<img src='/logo.png' alt='Logo' />
+					<img src='/Search-air-tickets/logo.png' alt='Logo' />
 					<h1>Поиск авиабилетов</h1>
 				</div>
 			</div>

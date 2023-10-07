@@ -38,7 +38,7 @@ export const ticketsData: ITicketsData[] = [
 		},
 		date: new Date(),
 		connectionAmount: 1,
-		logo: '/победа.png'
+		logo: '/Search-air-tickets/победа.png'
 	},
 	{
 		id: 2,
@@ -57,7 +57,7 @@ export const ticketsData: ITicketsData[] = [
 		},
 		date: new Date(),
 		connectionAmount: 0,
-		logo: '/red-wings.png'
+		logo: '/Search-air-tickets/red-wings.png'
 	},
 	{
 		id: 3,
@@ -76,7 +76,7 @@ export const ticketsData: ITicketsData[] = [
 		},
 		date: new Date(),
 		connectionAmount: 2,
-		logo: '/s7-airlines.png'
+		logo: '/Search-air-tickets/s7-airlines.png'
 	},
 	{
 		id: 4,
@@ -95,7 +95,7 @@ export const ticketsData: ITicketsData[] = [
 		},
 		date: new Date(),
 		connectionAmount: 0,
-		logo: '/победа.png'
+		logo: '/Search-air-tickets/победа.png'
 	},
 	{
 		id: 5,
@@ -114,6 +114,6 @@ export const ticketsData: ITicketsData[] = [
 		},
 		date: new Date(),
 		connectionAmount: 3,
-		logo: '/red-wings.png'
+		logo: '/Search-air-tickets/red-wings.png'
 	}
 ]
