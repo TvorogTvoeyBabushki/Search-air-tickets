@@ -1,8 +1,14 @@
 .header {
 	> div {
 		> div {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
+			-webkit-box-pack: start;
+			-ms-flex-pack: start;
 			justify-content: flex-start;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
 			align-items: center;
 			gap: 0 34px;
 			padding-top: 110px;
@@ -14,6 +20,17 @@
 			> h1 {
 				font-size: 1.5rem;
 				font-weight: 700;
+			}
+
+			@media (max-width: 1150px) {
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				padding-top: 30px;
+
+				> h1 {
+					display: none;
+				}
 			}
 		}
 	}

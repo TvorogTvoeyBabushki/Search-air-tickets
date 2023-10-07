@@ -1,12 +1,21 @@
 @import '@/assets/styles/variables';
 
 .search_air_tickets {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	margin-top: 30px;
 
-	> div:first-child {
+	> .sort_panel_wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
 		gap: 50px;
 		width: 100%;
@@ -14,10 +23,105 @@
 	}
 
 	> div:last-child {
-		> div:first-child {
+		> div:last-child {
+			margin-top: 40px;
+		}
+	}
+
+	@media (max-width: 1150px) {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+
+		> div:nth-child(2) {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
 			justify-content: space-between;
-			margin-bottom: 30px;
+			padding: 20px;
+			margin-top: 15px;
+			background-color: $purply;
+			border-radius: 10px;
+			color: $white;
+
+			> button {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				gap: 17px;
+				padding: 2px;
+				color: inherit;
+
+				> img {
+					width: 20px;
+				}
+			}
+		}
+		> .sort_panel_wrapper {
+			max-width: 100%;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: row;
+			flex-direction: row;
+			gap: 0 30px;
+			margin-top: -10px;
+			background-color: $purply;
+			-webkit-box-shadow: 0 6px 6px rgba(#000, 0.3);
+			box-shadow: 0 6px 6px rgba(#000, 0.3);
+			border-radius: 0 0 10px 10px;
+
+			> div:first-child {
+				-webkit-box-ordinal-group: 2;
+				-ms-flex-order: 1;
+				order: 1;
+			}
+		}
+	}
+
+	@media (max-width: 760px) {
+		> div:nth-child(2) {
+			font-size: 0.75rem;
+		}
+
+		> .sort_panel_wrapper {
+			font-size: 0.75rem;
+			gap: 0;
+		}
+	}
+
+	@media (max-width: 450px) {
+		> .sort_panel_wrapper {
+			> div:first-child {
+				width: 55%;
+			}
+			> div:last-child {
+				width: 45%;
+			}
+		}
+	}
+}
+
+.btn_sort_panel {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	@media (max-width: 1150px) {
+		> button {
+			padding: 18px 40px;
+		}
+	}
+
+	@media (max-width: 760px) {
+		> button {
+			padding: 20px 0;
+			font-size: 0.75rem;
 		}
 	}
 }

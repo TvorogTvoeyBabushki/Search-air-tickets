@@ -1,8 +1,15 @@
 @import '@/assets/styles/variables';
 
 .sort_panel {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	gap: 30px;
 
@@ -11,16 +18,56 @@
 	border-radius: 10px;
 
 	> h3 {
+		-ms-flex-item-align: start;
 		align-self: flex-start;
 		font-size: 1.3rem;
 		font-weight: 700;
 	}
 
 	> form {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
 		gap: 20px;
 		width: 100%;
 		max-width: 200px;
+	}
+
+	@media (max-width: 1150px) {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+		padding-top: 10px;
+		background-color: inherit;
+		color: $white;
+
+		> form {
+			> label {
+				&::before {
+					border-color: inherit;
+					-webkit-filter: brightness(1000%);
+					filter: brightness(1000%);
+				}
+
+				> span {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 760px) {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		padding: 20px;
+
+		> h3 {
+			font-size: 1rem;
+		}
 	}
 }

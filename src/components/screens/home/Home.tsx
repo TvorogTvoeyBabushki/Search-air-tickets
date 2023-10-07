@@ -16,7 +16,7 @@ const Home: FunctionComponent = () => {
 	useEffect(() => {
 		store.dispatch(getTickets())
 	}, [])
-	// в самом конце объединить компонент чекбокса и радиокнопки
+
 	return (
 		<Layout>
 			<main>
